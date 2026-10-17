@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Heat Waves SMP | Survival, Politics & Power</title>
     <meta name="description" content="In a relentless survival SMP where heat, politics, alliances, and power collide. Join play.heatwaves.fun:25644 today.">
-    <meta name="theme-color" content="#ff5e3a">
+    <meta name="theme-color" content="#ff4500">
+    <link rel="icon" type="image/webp" href="logo.webp">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,18 +23,19 @@
                 extend: {
                     colors: {
                         obsidian: {
-                            950: '#06070a',
-                            900: '#090a0f',
-                            800: '#11131c',
-                            700: '#191c29',
-                            600: '#252a3d'
+                            950: '#050508',
+                            900: '#09080d',
+                            800: '#12101b',
+                            700: '#1b1726',
+                            600: '#282238'
                         },
                         ember: {
-                            DEFAULT: '#ff5e3a',
-                            crimson: '#ff3b30',
-                            amber: '#ff9500',
+                            DEFAULT: '#ff4d1a',
+                            crimson: '#ff1e00',
+                            amber: '#ff8800',
                             gold: '#ffb703',
-                            glow: 'rgba(255, 94, 58, 0.35)'
+                            wave: '#00b4ff',
+                            glow: 'rgba(255, 77, 26, 0.45)'
                         }
                     },
                     fontFamily: {
@@ -43,35 +45,37 @@
                         mono: ['JetBrains Mono', 'monospace']
                     },
                     boxShadow: {
-                        'ember': '0 0 25px -5px rgba(255, 94, 58, 0.35)',
-                        'ember-lg': '0 0 45px -10px rgba(255, 149, 0, 0.45)',
-                        'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.5)'
+                        'ember': '0 0 30px -5px rgba(255, 77, 26, 0.45)',
+                        'ember-lg': '0 0 55px -8px rgba(255, 115, 0, 0.6)',
+                        'wave': '0 0 30px -5px rgba(0, 180, 255, 0.35)',
+                        'glass': '0 10px 35px 0 rgba(0, 0, 0, 0.65)'
                     }
                 }
             }
         }
     </script>
 
-    <!-- Custom CSS for Particles, Marquee, Glassmorphism & Glows -->
+    <!-- Custom CSS for Heat Haze, Magma Rings, Particles, Marquee & Glassmorphism -->
     <style>
         :root {
-            --bg-primary: #090a0f;
-            --bg-secondary: #11131c;
-            --accent-primary: #ff5e3a;
-            --accent-secondary: #ff9500;
+            --bg-primary: #07060a;
+            --bg-secondary: #12101b;
+            --accent-primary: #ff4d1a;
+            --accent-secondary: #ff8800;
             --accent-gold: #ffb703;
+            --accent-wave: #00b4ff;
         }
 
         body {
             background-color: var(--bg-primary);
-            color: #f1f5f9;
+            color: #f8fafc;
             overflow-x: hidden;
-            selection-background-color: #ff5e3a;
+            selection-background-color: #ff4d1a;
             selection-color: #ffffff;
         }
 
         ::selection {
-            background: rgba(255, 94, 58, 0.35);
+            background: rgba(255, 77, 26, 0.4);
             color: #fff;
         }
 
@@ -80,48 +84,95 @@
             width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #06070a;
+            background: #050508;
         }
         ::-webkit-scrollbar-thumb {
-            background: #252a3d;
+            background: linear-gradient(180deg, #ff4d1a, #ff8800);
             border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #ff5e3a;
+            background: #ffb703;
         }
 
         /* Ambient Background Gradients & Grid */
         .bg-grid-pattern {
-            background-size: 42px 42px;
+            background-size: 44px 44px;
             background-image: 
-                linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+                linear-gradient(to right, rgba(255, 100, 30, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 100, 30, 0.03) 1px, transparent 1px);
         }
 
+        /* Intense Hero Heat Radial Glow */
         .hero-radial-glow {
-            background: radial-gradient(circle at 50% 25%, rgba(255, 94, 58, 0.16) 0%, rgba(255, 149, 0, 0.06) 38%, rgba(9, 10, 15, 0) 75%);
+            background:
+                radial-gradient(circle at 50% 18%, rgba(255, 69, 0, 0.28) 0%, rgba(255, 136, 0, 0.12) 32%, rgba(0, 180, 255, 0.05) 52%, rgba(7, 6, 10, 0) 75%),
+                radial-gradient(circle at 85% 15%, rgba(255, 140, 0, 0.12) 0%, transparent 45%),
+                radial-gradient(circle at 15% 20%, rgba(255, 30, 0, 0.12) 0%, transparent 45%);
         }
 
-        /* Glassmorphic Surface Cards */
+        /* Bottom Screen Lava Horizon Glow */
+        .lava-horizon {
+            position: fixed;
+            bottom: -40px;
+            left: 0;
+            right: 0;
+            height: 140px;
+            background: radial-gradient(ellipse at 50% 100%, rgba(255, 60, 0, 0.22) 0%, rgba(255, 120, 0, 0.08) 45%, transparent 80%);
+            pointer-events: none;
+            z-index: 1;
+            animation: lava-breathe 5s ease-in-out infinite alternate;
+        }
+
+        @keyframes lava-breathe {
+            0% { opacity: 0.65; transform: scaleY(0.95); }
+            100% { opacity: 1; transform: scaleY(1.1); }
+        }
+
+        /* Floating Hero Logo & Rotating Magma Aura */
+        @keyframes float-emblem {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-8px) scale(1.02); }
+        }
+
+        @keyframes spin-slow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .hero-logo-float {
+            animation: float-emblem 4.5s ease-in-out infinite;
+        }
+
+        .magma-ring {
+            background: conic-gradient(from 0deg, #ff3b00, #ffb703, #00b4ff, #ff1e00, #ff8800, #ff3b00);
+            animation: spin-slow 9s linear infinite;
+        }
+
+        /* Heat Wave Distortion Shimmer on Hero Title */
+        .heat-title-glow {
+            text-shadow: 0 0 35px rgba(255, 77, 26, 0.45), 0 0 70px rgba(255, 136, 0, 0.2);
+        }
+
+        /* Glassmorphic Surface Cards with Magma Hover */
         .glass-card {
-            background: rgba(17, 19, 28, 0.72);
+            background: rgba(18, 16, 27, 0.76);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 120, 50, 0.14);
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .glass-card:hover {
-            border-color: rgba(255, 94, 58, 0.4);
-            box-shadow: 0 12px 35px -10px rgba(255, 94, 58, 0.22);
-            transform: translateY(-3px);
+            border-color: rgba(255, 94, 58, 0.55);
+            box-shadow: 0 14px 40px -10px rgba(255, 77, 26, 0.3), inset 0 1px 0 0 rgba(255, 183, 3, 0.25);
+            transform: translateY(-4px);
         }
 
         .glass-nav {
-            background: rgba(9, 10, 15, 0.82);
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+            background: rgba(7, 6, 10, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 94, 58, 0.18);
         }
 
         /* Infinite Marquee Animation */
@@ -133,7 +184,7 @@
         .animate-marquee {
             display: flex;
             width: max-content;
-            animation: marquee 32s linear infinite;
+            animation: marquee 30s linear infinite;
         }
 
         .animate-marquee:hover {
@@ -142,9 +193,9 @@
 
         /* Subtle Pulse Ring for Status Dot */
         @keyframes pulse-ring {
-            0% { transform: scale(0.85); opacity: 0.8; }
-            70% { transform: scale(2.2); opacity: 0; }
-            100% { transform: scale(2.2); opacity: 0; }
+            0% { transform: scale(0.85); opacity: 0.85; }
+            70% { transform: scale(2.3); opacity: 0; }
+            100% { transform: scale(2.3); opacity: 0; }
         }
 
         .status-ring::before {
@@ -158,37 +209,49 @@
 
         /* Text Gradients */
         .text-gradient-fire {
-            background: linear-gradient(135deg, #ffffff 0%, #ffd8be 35%, #ff9500 70%, #ff5e3a 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #ffe6d5 25%, #ffb703 58%, #ff4d1a 85%, #ff1e00 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .text-gradient-ember {
-            background: linear-gradient(90deg, #ff5e3a 0%, #ff9500 55%, #ffb703 100%);
+        .text-gradient-wave {
+            background: linear-gradient(90deg, #ff5e3a 0%, #ffb703 45%, #38bdf8 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         /* Shimmer Button Effect */
         .btn-ember {
-            background: linear-gradient(135deg, #ff5e3a 0%, #ff8000 100%);
+            background: linear-gradient(135deg, #ff2a00 0%, #ff6a00 55%, #ff9900 100%);
             position: relative;
             overflow: hidden;
             transition: all 0.25s ease;
         }
         .btn-ember:hover {
-            box-shadow: 0 0 28px rgba(255, 94, 58, 0.55);
-            transform: translateY(-1px);
+            box-shadow: 0 0 32px rgba(255, 77, 26, 0.7);
+            transform: translateY(-2px);
         }
         .btn-ember:active {
             transform: translateY(0px);
+        }
+
+        /* Rising Heat Wave SVG Divider */
+        .heat-divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent 0%, rgba(255, 77, 26, 0.6) 30%, rgba(255, 183, 3, 0.9) 50%, rgba(0, 180, 255, 0.5) 70%, transparent 100%);
         }
     </style>
 </head>
 <body class="min-h-screen relative selection:bg-ember selection:text-white">
 
-    <!-- Floating Ember Particle Canvas (Background) -->
-    <canvas id="emberCanvas" class="fixed inset-0 pointer-events-none z-0 opacity-65"></canvas>
+    <!-- Top Thermal Scroll Progress Bar -->
+    <div id="scrollProgress" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-ember-crimson via-ember-gold to-ember-wave z-[60] w-0 transition-all duration-75"></div>
+
+    <!-- Floating Magma & Ember Particle Canvas (Background) -->
+    <canvas id="emberCanvas" class="fixed inset-0 pointer-events-none z-0 opacity-85"></canvas>
+
+    <!-- Bottom Screen Lava Horizon Glow -->
+    <div class="lava-horizon"></div>
 
     <!-- Background Grid Overlay -->
     <div class="fixed inset-0 bg-grid-pattern pointer-events-none z-0"></div>
@@ -199,23 +262,21 @@
     <header class="sticky top-0 z-50 glass-nav transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
             
-            <!-- Left: Emblem + Title + Season Badge -->
+            <!-- Left: Official Heat Waves Logo + Title + Season Badge -->
             <a href="#home" class="flex items-center gap-3.5 group focus:outline-none">
-                <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-ember via-ember-amber to-amber-600 p-[1px] shadow-ember transition-transform duration-300 group-hover:scale-105">
-                    <div class="w-full h-full bg-obsidian-900 rounded-[11px] flex items-center justify-center">
-                        <!-- Flame Sword / Crest SVG -->
-                        <svg class="w-6 h-6 text-ember" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2C9.5 5.5 7 8.5 7 12.5C7 16.09 9.91 19 13.5 19C14.05 19 14.59 18.93 15.1 18.8C13.56 17.89 12.5 16.22 12.5 14.3C12.5 11.8 14.2 9.8 15.5 8C16.5 10 17.5 11.9 17.5 14C17.5 16.97 15.34 19.44 12.5 19.92C12.99 19.97 13.49 20 14 20C18.42 20 22 16.42 22 12C22 7.5 18.5 3.5 15 1.5C15.5 3.5 15 5.5 13.5 7C13.5 4.5 12.8 3 12 2ZM6.5 12C4.5 14.2 3.5 16.3 3.5 18.5C3.5 20.43 5.07 22 7 22C8.93 22 10.5 20.43 10.5 18.5C10.5 17.45 10.05 16.4 9.2 15.3C8.9 16.3 8.1 17 7.2 17C6.1 17 5.5 16 5.5 14.9C5.5 13.9 5.9 13 6.5 12Z"/>
-                        </svg>
-                    </div>
+                <div class="relative w-12 h-12 rounded-full p-[2px] bg-gradient-to-tr from-ember-crimson via-ember-gold to-ember-wave shadow-ember transition-transform duration-300 group-hover:scale-110">
+                    <img src="logo.webp"
+                         onerror="if(!this.dataset.t1){this.dataset.t1=1;this.src='77a17a08a6d6fc6ce1f10d728fa857ce.webp';}else if(!this.dataset.t2){this.dataset.t2=1;this.src='https://api.mcsrvstat.us/icon/play.heatwaves.fun:25644';}else{this.onerror=null;this.src='https://placehold.co/96x96/12101b/ff4d1a?text=HW';}"
+                         alt="Heat Waves SMP Logo"
+                         class="w-full h-full rounded-full object-cover bg-obsidian-900">
                 </div>
                 <div class="flex flex-col">
                     <div class="flex items-center gap-2.5">
-                        <span class="font-display font-bold text-lg sm:text-xl tracking-wider text-white group-hover:text-ember-gold transition-colors">
-                            HEAT WAVES <span class="text-ember">SMP</span>
+                        <span class="font-display font-extrabold text-lg sm:text-xl tracking-wider text-white group-hover:text-ember-gold transition-colors">
+                            HEAT <span class="text-sky-400">WAVES</span> <span class="text-ember">SMP</span>
                         </span>
-                        <span class="hidden xl:inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-mono font-medium bg-ember/15 text-ember-gold border border-ember/30">
-                            Season 1: Scorched Horizon
+                        <span class="hidden xl:inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-mono font-semibold bg-ember/20 text-ember-gold border border-ember/40">
+                            <span>🔥</span> Season 1: Scorched Horizon
                         </span>
                     </div>
                     <span class="text-xs text-slate-400 font-mono tracking-tight">play.heatwaves.fun:25644</span>
@@ -224,27 +285,27 @@
 
             <!-- Center Links -->
             <nav class="hidden lg:flex items-center gap-1 xl:gap-2 text-sm font-medium text-slate-300">
-                <a href="#home" class="px-3.5 py-2 rounded-lg hover:text-white hover:bg-white/5 transition-colors">Home</a>
-                <a href="#status" class="px-3.5 py-2 rounded-lg hover:text-white hover:bg-white/5 transition-colors">Live Status</a>
-                <a href="#why-heatwaves" class="px-3.5 py-2 rounded-lg hover:text-white hover:bg-white/5 transition-colors">Why Heat Waves</a>
-                <a href="#lore-world" class="px-3.5 py-2 rounded-lg hover:text-white hover:bg-white/5 transition-colors">Lore & World</a>
-                <a href="#announcements" class="px-3.5 py-2 rounded-lg hover:text-white hover:bg-white/5 transition-colors">Announcements</a>
-                <a href="#rules" class="px-3.5 py-2 rounded-lg hover:text-white hover:bg-white/5 transition-colors">Rules</a>
+                <a href="#home" class="px-3.5 py-2 rounded-lg hover:text-ember-gold hover:bg-white/5 transition-colors">Home</a>
+                <a href="#status" class="px-3.5 py-2 rounded-lg hover:text-ember-gold hover:bg-white/5 transition-colors">Live Status</a>
+                <a href="#why-heatwaves" class="px-3.5 py-2 rounded-lg hover:text-ember-gold hover:bg-white/5 transition-colors">Why Heat Waves</a>
+                <a href="#lore-world" class="px-3.5 py-2 rounded-lg hover:text-ember-gold hover:bg-white/5 transition-colors">Lore & World</a>
+                <a href="#announcements" class="px-3.5 py-2 rounded-lg hover:text-ember-gold hover:bg-white/5 transition-colors">Announcements</a>
+                <a href="#rules" class="px-3.5 py-2 rounded-lg hover:text-ember-gold hover:bg-white/5 transition-colors">Rules</a>
             </nav>
 
             <!-- Right: Live Network Status Pill + Join Discord CTA -->
             <div class="flex items-center gap-3">
                 <!-- Live Network Status Pill -->
-                <a href="#status" id="navStatusPill" class="hidden sm:flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-obsidian-800/90 border border-white/10 hover:border-ember/40 transition-all text-xs font-mono">
+                <a href="#status" id="navStatusPill" class="hidden sm:flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-obsidian-800/90 border border-ember/30 hover:border-ember transition-all text-xs font-mono shadow-ember">
                     <span id="navStatusDot" class="relative w-2.5 h-2.5 rounded-full bg-amber-400 status-ring"></span>
-                    <span id="navStatusLabel" class="text-slate-300 font-semibold">PINGING...</span>
+                    <span id="navStatusLabel" class="text-slate-200 font-semibold">PINGING...</span>
                     <span class="text-slate-600">|</span>
-                    <span id="navPlayerCount" class="text-ember-gold font-semibold">-- / --</span>
+                    <span id="navPlayerCount" class="text-ember-gold font-bold">-- / --</span>
                 </a>
 
                 <!-- Join Discord CTA -->
                 <a href="https://discord.gg/3AwXSR4g" target="_blank" rel="noopener noreferrer"
-                   class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-white bg-[#5865F2] hover:bg-[#4752C4] shadow-lg shadow-[#5865F2]/25 transition-all hover:-translate-y-0.5">
+                   class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-white bg-[#5865F2] hover:bg-[#4752C4] shadow-lg shadow-[#5865F2]/30 transition-all hover:-translate-y-0.5">
                     <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
                         <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/>
                     </svg>
@@ -252,7 +313,7 @@
                 </a>
 
                 <!-- Mobile Menu Toggle -->
-                <button id="mobileMenuBtn" aria-label="Toggle Menu" class="lg:hidden p-2 rounded-xl bg-obsidian-800 border border-white/10 text-slate-300 hover:text-white">
+                <button id="mobileMenuBtn" aria-label="Toggle Menu" class="lg:hidden p-2 rounded-xl bg-obsidian-800 border border-ember/30 text-slate-300 hover:text-white">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                     </svg>
@@ -261,8 +322,8 @@
         </div>
 
         <!-- Mobile Dropdown Navigation -->
-        <div id="mobileMenu" class="hidden lg:hidden border-t border-white/10 bg-obsidian-900/95 backdrop-blur-xl px-4 pt-3 pb-5 space-y-2">
-            <div class="flex items-center justify-between px-3 py-2 rounded-lg bg-obsidian-800/90 border border-white/5 mb-2">
+        <div id="mobileMenu" class="hidden lg:hidden border-t border-ember/20 bg-obsidian-900/95 backdrop-blur-xl px-4 pt-3 pb-5 space-y-2">
+            <div class="flex items-center justify-between px-3 py-2 rounded-lg bg-obsidian-800/90 border border-ember/20 mb-2">
                 <span class="text-xs font-mono text-slate-400">Server Status</span>
                 <span id="mobileStatusText" class="text-xs font-mono font-semibold text-ember-gold">Checking...</span>
             </div>
@@ -276,40 +337,63 @@
     </header>
 
     <!-- ========================================== -->
-    <!-- 2. HERO SECTION                            -->
+    <!-- 2. HERO SECTION WITH CENTERPIECE LOGO      -->
     <!-- ========================================== -->
-    <section id="home" class="relative pt-14 pb-20 md:pt-24 md:pb-28 hero-radial-glow overflow-hidden z-10">
+    <section id="home" class="relative pt-10 pb-20 md:pt-16 md:pb-28 hero-radial-glow overflow-hidden z-10">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            
-            <!-- Top Status Tag -->
-            <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-obsidian-800/90 border border-ember/30 shadow-ember mb-8">
-                <span class="w-2 h-2 rounded-full bg-ember animate-ping"></span>
-                <span class="font-mono text-xs sm:text-sm uppercase tracking-widest text-ember-gold font-semibold">
-                    Season 1 • Survival, Politics &amp; Power
+
+            <!-- Floating Heat Waves SMP Centerpiece Logo with Rotating Magma Ring -->
+            <div class="relative inline-flex items-center justify-center mb-7 hero-logo-float">
+                <!-- Outer Blurred Flame Halo -->
+                <div class="absolute -inset-4 rounded-full bg-gradient-to-tr from-ember-crimson via-ember-amber to-ember-wave opacity-55 blur-2xl"></div>
+                <!-- Rotating Conic Magma Ring -->
+                <div class="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full p-[3px] magma-ring shadow-ember-lg">
+                    <div class="w-full h-full rounded-full bg-obsidian-950 p-1 flex items-center justify-center overflow-hidden">
+                        <img src="logo.webp"
+                             onerror="if(!this.dataset.t1){this.dataset.t1=1;this.src='77a17a08a6d6fc6ce1f10d728fa857ce.webp';}else if(!this.dataset.t2){this.dataset.t2=1;this.src='https://api.mcsrvstat.us/icon/play.heatwaves.fun:25644';}else{this.onerror=null;this.src='https://placehold.co/240x240/12101b/ff4d1a?text=HEAT+WAVES';}"
+                             alt="Heat Waves SMP Official Crest"
+                             class="w-full h-full rounded-full object-cover">
+                    </div>
+                </div>
+                <!-- Floating Crown / Heat Tag -->
+                <span class="absolute -bottom-3 px-3.5 py-1 rounded-full bg-obsidian-900/95 border border-ember/50 text-[11px] font-mono font-bold uppercase tracking-widest text-ember-gold shadow-ember">
+                    🔥 HEAT WAVES SMP
                 </span>
             </div>
 
+            <!-- Top Status Tag -->
+            <div class="mt-3 mb-5">
+                <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-obsidian-800/90 border border-ember/40 shadow-ember">
+                    <span class="w-2 h-2 rounded-full bg-ember animate-ping"></span>
+                    <span class="font-mono text-xs sm:text-sm uppercase tracking-widest text-ember-gold font-semibold">
+                        Season 1 • Survival, Politics &amp; Thermal Warfare
+                    </span>
+                </div>
+            </div>
+
             <!-- Main Headline -->
-            <h1 class="font-display font-black text-4xl sm:text-6xl lg:text-7xl tracking-tight leading-[1.08] mb-6">
-                <span class="text-gradient-fire">Forge Your Legacy.</span>
+            <h1 class="font-display font-black text-4xl sm:text-6xl lg:text-7xl tracking-tight leading-[1.08] mb-6 heat-title-glow">
+                <span class="text-gradient-fire">Forge Your Legacy</span><br class="hidden sm:inline" />
+                <span class="text-white text-3xl sm:text-5xl lg:text-6xl">In The </span>
+                <span class="text-gradient-wave text-3xl sm:text-5xl lg:text-6xl">Scorched Horizon.</span>
             </h1>
 
             <!-- Subheadline -->
             <p class="max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-slate-300 font-normal leading-relaxed mb-6">
-                In a relentless survival SMP where heat, politics, alliances, and power collide.
-                No pay-to-win. Active community. Fair economy.
+                In a relentless survival SMP where blistering heat, shifting alliances, and raw power collide.
+                No pay-to-win. Active community. Player-driven economy.
             </p>
 
             <!-- Bullet Highlights -->
-            <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs sm:text-sm font-mono text-slate-300 mb-10">
-                <span class="flex items-center gap-2 px-3 py-1 rounded-lg bg-white/[0.03] border border-white/5">
-                    <span class="text-ember">✦</span> No pay-to-win
+            <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-5 text-xs sm:text-sm font-mono text-slate-200 mb-10">
+                <span class="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-ember/10 border border-ember/30">
+                    <span class="text-ember">🔥</span> No Pay-to-Win
                 </span>
-                <span class="flex items-center gap-2 px-3 py-1 rounded-lg bg-white/[0.03] border border-white/5">
-                    <span class="text-ember-amber">✦</span> Active community
+                <span class="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-amber-500/10 border border-amber-500/30">
+                    <span class="text-ember-gold">⚔️</span> Clan Warfare &amp; Lore
                 </span>
-                <span class="flex items-center gap-2 px-3 py-1 rounded-lg bg-white/[0.03] border border-white/5">
-                    <span class="text-ember-gold">✦</span> Fair economy
+                <span class="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-sky-500/10 border border-sky-400/30">
+                    <span class="text-sky-400">🌊</span> Java &amp; Bedrock Crossplay
                 </span>
             </div>
 
@@ -326,37 +410,38 @@
 
                 <!-- Copy Server IP -->
                 <button onclick="copyText('play.heatwaves.fun:25644', 'Full Server Address (play.heatwaves.fun:25644)')"
-                        class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-7 py-4 rounded-xl font-heading font-semibold text-base text-white bg-obsidian-800 hover:bg-obsidian-700 border border-ember/40 hover:border-ember shadow-glass transition-all hover:-translate-y-0.5">
+                        class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-7 py-4 rounded-xl font-heading font-semibold text-base text-white bg-obsidian-800 hover:bg-obsidian-700 border border-ember/50 hover:border-ember-gold shadow-glass transition-all hover:-translate-y-0.5">
                     <svg class="w-5 h-5 text-ember-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
                     </svg>
                     <span>Copy Server IP</span>
                 </button>
 
-                <!-- How to Join / Server Status -->
+                <!-- How to Join Modal Trigger -->
                 <button onclick="openConnectModal()"
-                        class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl font-heading font-medium text-base text-slate-300 hover:text-white bg-white/[0.03] hover:bg-white/[0.08] border border-white/10 transition-all">
-                    <svg class="w-5 h-5 text-ember" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl font-heading font-medium text-base text-slate-200 hover:text-white bg-white/[0.04] hover:bg-white/[0.1] border border-white/15 transition-all">
+                    <svg class="w-5 h-5 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                     </svg>
                     <span>How to Join</span>
                 </button>
             </div>
 
-            <!-- Interactive Server Connection Box (DarkAge SMP Style) -->
-            <div class="max-w-3xl mx-auto glass-card rounded-2xl p-5 sm:p-7 border border-white/10 shadow-glass text-left">
+            <!-- Interactive Server Connection Box (DarkAge SMP Style + Heat Vibe) -->
+            <div class="max-w-3xl mx-auto glass-card rounded-2xl p-5 sm:p-7 border border-ember/30 shadow-ember text-left relative overflow-hidden">
+                <div class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-ember-crimson via-ember-gold to-ember-wave"></div>
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 mb-5 border-b border-white/10">
                     <div class="flex items-center gap-2.5">
-                        <span class="w-2.5 h-2.5 rounded-full bg-ember"></span>
-                        <span class="font-mono text-xs uppercase tracking-widest text-slate-400">Direct Connection Terminal</span>
+                        <span class="w-2.5 h-2.5 rounded-full bg-ember animate-pulse"></span>
+                        <span class="font-mono text-xs uppercase tracking-widest text-ember-gold font-semibold">Direct Connection Terminal</span>
                     </div>
-                    <span class="font-mono text-xs text-ember-gold">Java &amp; Bedrock Compatible (1.20.x – 1.21.x)</span>
+                    <span class="font-mono text-xs text-sky-400">Java &amp; Bedrock Compatible (1.20.x – 1.21.x)</span>
                 </div>
 
                 <!-- Connection Grid -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-3.5 mb-5">
                     <!-- IP Box -->
-                    <div class="bg-obsidian-900/90 border border-white/10 rounded-xl p-3.5 flex items-center justify-between group hover:border-ember/50 transition-all">
+                    <div class="bg-obsidian-950/90 border border-white/10 rounded-xl p-3.5 flex items-center justify-between group hover:border-ember/60 transition-all">
                         <div>
                             <div class="text-[10px] font-mono uppercase tracking-wider text-slate-400">Server IP</div>
                             <div class="font-mono font-bold text-sm sm:text-base text-white mt-0.5">play.heatwaves.fun</div>
@@ -371,7 +456,7 @@
                     </div>
 
                     <!-- Port Box -->
-                    <div class="bg-obsidian-900/90 border border-white/10 rounded-xl p-3.5 flex items-center justify-between group hover:border-ember/50 transition-all">
+                    <div class="bg-obsidian-950/90 border border-white/10 rounded-xl p-3.5 flex items-center justify-between group hover:border-ember/60 transition-all">
                         <div>
                             <div class="text-[10px] font-mono uppercase tracking-wider text-slate-400">Server Port</div>
                             <div class="font-mono font-bold text-sm sm:text-base text-ember-gold mt-0.5">25644</div>
@@ -386,13 +471,13 @@
                     </div>
 
                     <!-- Full Address One-Click -->
-                    <div class="bg-obsidian-900/90 border border-ember/30 rounded-xl p-3.5 flex items-center justify-between group hover:border-ember transition-all">
+                    <div class="bg-obsidian-950/90 border border-ember/40 rounded-xl p-3.5 flex items-center justify-between group hover:border-ember-gold transition-all">
                         <div class="truncate pr-2">
                             <div class="text-[10px] font-mono uppercase tracking-wider text-ember-amber">Full Address</div>
                             <div class="font-mono font-bold text-xs sm:text-sm text-white mt-0.5 truncate">play.heatwaves.fun:25644</div>
                         </div>
                         <button onclick="copyText('play.heatwaves.fun:25644', 'Full Connect Address')"
-                                class="px-3 py-1.5 rounded-lg bg-ember hover:bg-ember-amber text-white font-mono text-xs font-semibold transition-colors shrink-0">
+                                class="px-3 py-1.5 rounded-lg btn-ember text-white font-mono text-xs font-semibold transition-colors shrink-0">
                             Copy
                         </button>
                     </div>
@@ -402,14 +487,14 @@
                 <div class="flex flex-wrap items-center justify-center sm:justify-between gap-3 pt-2 text-xs font-mono text-slate-400">
                     <div class="flex items-center gap-2">
                         <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-                        <span>24/7 Low Ping</span>
+                        <span>24/7 Low Ping Thermal Node</span>
                     </div>
                     <div class="flex items-center gap-2">
                         <span class="w-2 h-2 rounded-full bg-ember-amber"></span>
                         <span>Active Moderators</span>
                     </div>
                     <div class="flex items-center gap-2">
-                        <span class="w-2 h-2 rounded-full bg-ember-gold"></span>
+                        <span class="w-2 h-2 rounded-full bg-sky-400"></span>
                         <span>Fair Play Guaranteed</span>
                     </div>
                 </div>
@@ -421,25 +506,25 @@
     <!-- ========================================== -->
     <!-- 3. INFINITE SCROLLING MARQUEE TICKER       -->
     <!-- ========================================== -->
-    <div class="relative z-10 border-y border-white/10 bg-obsidian-950/90 py-3.5 overflow-hidden select-none">
-        <div class="animate-marquee font-mono text-xs sm:text-sm tracking-widest uppercase font-semibold text-slate-300">
+    <div class="relative z-10 border-y border-ember/25 bg-obsidian-950/95 py-3.5 overflow-hidden select-none shadow-ember">
+        <div class="animate-marquee font-mono text-xs sm:text-sm tracking-widest uppercase font-semibold text-slate-200">
             <!-- First Set -->
             <div class="flex items-center gap-8 mx-4">
-                <span><strong class="text-ember">✧</strong> HEAT WAVES SMP OFFICIAL SERVER</span>
-                <span><strong class="text-ember-gold">✧</strong> IP: <span class="text-white">PLAY.HEATWAVES.FUN:25644</span></span>
-                <span><strong class="text-ember">✧</strong> JOIN OUR DISCORD FOR UPDATES &amp; EVENTS</span>
-                <span><strong class="text-ember-gold">✧</strong> NO PAY-TO-WIN • PURE SURVIVAL</span>
-                <span><strong class="text-ember">✧</strong> SEASON 1: SCORCHED HORIZON</span>
-                <span><strong class="text-ember-gold">✧</strong> CLAN WARFARE • PLAYER ECONOMY • POLITICS</span>
+                <span><strong class="text-ember">🔥</strong> HEAT WAVES SMP OFFICIAL SERVER</span>
+                <span><strong class="text-ember-gold">⚡</strong> IP: <span class="text-white">PLAY.HEATWAVES.FUN:25644</span></span>
+                <span><strong class="text-sky-400">🌊</strong> JOIN OUR DISCORD FOR UPDATES &amp; EVENTS</span>
+                <span><strong class="text-ember-gold">👑</strong> NO PAY-TO-WIN • PURE SURVIVAL</span>
+                <span><strong class="text-ember">🔥</strong> SEASON 1: SCORCHED HORIZON</span>
+                <span><strong class="text-sky-400">⚔️</strong> CLAN WARFARE • PLAYER ECONOMY • POLITICS</span>
             </div>
             <!-- Duplicate Set for Seamless Loop -->
             <div class="flex items-center gap-8 mx-4">
-                <span><strong class="text-ember">✧</strong> HEAT WAVES SMP OFFICIAL SERVER</span>
-                <span><strong class="text-ember-gold">✧</strong> IP: <span class="text-white">PLAY.HEATWAVES.FUN:25644</span></span>
-                <span><strong class="text-ember">✧</strong> JOIN OUR DISCORD FOR UPDATES &amp; EVENTS</span>
-                <span><strong class="text-ember-gold">✧</strong> NO PAY-TO-WIN • PURE SURVIVAL</span>
-                <span><strong class="text-ember">✧</strong> SEASON 1: SCORCHED HORIZON</span>
-                <span><strong class="text-ember-gold">✧</strong> CLAN WARFARE • PLAYER ECONOMY • POLITICS</span>
+                <span><strong class="text-ember">🔥</strong> HEAT WAVES SMP OFFICIAL SERVER</span>
+                <span><strong class="text-ember-gold">⚡</strong> IP: <span class="text-white">PLAY.HEATWAVES.FUN:25644</span></span>
+                <span><strong class="text-sky-400">🌊</strong> JOIN OUR DISCORD FOR UPDATES &amp; EVENTS</span>
+                <span><strong class="text-ember-gold">👑</strong> NO PAY-TO-WIN • PURE SURVIVAL</span>
+                <span><strong class="text-ember">🔥</strong> SEASON 1: SCORCHED HORIZON</span>
+                <span><strong class="text-sky-400">⚔️</strong> CLAN WARFARE • PLAYER ECONOMY • POLITICS</span>
             </div>
         </div>
     </div>
@@ -455,13 +540,13 @@
                 </div>
                 <h2 class="font-display font-bold text-3xl sm:text-4xl text-white">Live Server Status</h2>
                 <p class="text-slate-400 text-sm sm:text-base mt-1">
-                    Direct status feed from <span class="font-mono text-slate-200">play.heatwaves.fun:25644</span>
+                    Direct status feed from <span class="font-mono text-ember-gold">play.heatwaves.fun:25644</span>
                 </p>
             </div>
             <div class="flex items-center gap-3">
                 <span id="lastCheckedText" class="text-xs font-mono text-slate-400">Auto-updates every 30s</span>
                 <button id="refreshStatusBtn" onclick="fetchServerStatus(true)"
-                        class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-obsidian-800 hover:bg-obsidian-700 border border-white/10 hover:border-ember/50 text-xs font-mono font-semibold text-white transition-all">
+                        class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-obsidian-800 hover:bg-obsidian-700 border border-ember/30 hover:border-ember text-xs font-mono font-semibold text-white transition-all shadow-ember">
                     <svg id="refreshIcon" class="w-4 h-4 text-ember transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
                     </svg>
@@ -471,20 +556,23 @@
         </div>
 
         <!-- Status Terminal Card -->
-        <div class="glass-card rounded-3xl p-6 sm:p-8 border border-white/10 relative overflow-hidden">
+        <div class="glass-card rounded-3xl p-6 sm:p-8 border border-ember/30 relative overflow-hidden shadow-ember">
             <!-- Top Accent Line -->
-            <div class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-ember via-ember-amber to-ember-gold"></div>
+            <div class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-ember-crimson via-ember-gold to-ember-wave"></div>
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
                 
-                <!-- Left Column: Server Icon, Status Badge & MOTD -->
+                <!-- Left Column: Server Logo Icon, Status Badge & MOTD -->
                 <div class="lg:col-span-7 flex flex-col sm:flex-row items-start sm:items-center gap-5">
-                    <!-- Server Icon Container -->
+                    <!-- Server Icon Container using Heat Waves Logo -->
                     <div class="relative shrink-0">
-                        <img id="serverIcon"
-                             src="https://placehold.co/96x96/11131c/ff5e3a?text=HW"
-                             alt="Heat Waves SMP Icon"
-                             class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl border border-white/15 bg-obsidian-900 object-cover shadow-ember">
+                        <div class="p-[2px] rounded-2xl bg-gradient-to-tr from-ember-crimson via-ember-gold to-ember-wave shadow-ember">
+                            <img id="serverIcon"
+                                 src="logo.webp"
+                                 onerror="if(!this.dataset.t1){this.dataset.t1=1;this.src='77a17a08a6d6fc6ce1f10d728fa857ce.webp';}else if(!this.dataset.t2){this.dataset.t2=1;this.src='https://api.mcsrvstat.us/icon/play.heatwaves.fun:25644';}else{this.onerror=null;this.src='https://placehold.co/96x96/12101b/ff4d1a?text=HW';}"
+                                 alt="Heat Waves SMP Icon"
+                                 class="w-20 h-20 sm:w-24 sm:h-24 rounded-[14px] bg-obsidian-950 object-cover">
+                        </div>
                         <span id="statusCornerDot" class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-amber-400 border-4 border-obsidian-900"></span>
                     </div>
 
@@ -498,7 +586,7 @@
                         </div>
 
                         <!-- Cleanly Formatted MOTD Box -->
-                        <div class="bg-obsidian-950/85 border border-white/10 rounded-xl p-3.5 font-mono text-xs sm:text-sm text-slate-200 leading-relaxed">
+                        <div class="bg-obsidian-950/90 border border-white/10 rounded-xl p-3.5 font-mono text-xs sm:text-sm text-slate-200 leading-relaxed">
                             <div class="text-[10px] uppercase tracking-widest text-slate-500 mb-1">Server MOTD / Broadcast</div>
                             <div id="serverMotd" class="text-ember-gold font-medium break-words">
                                 Connecting to play.heatwaves.fun:25644 telemetry...
@@ -508,9 +596,9 @@
                 </div>
 
                 <!-- Right Column: Player Meter & Quick Copy -->
-                <div class="lg:col-span-5 bg-obsidian-900/90 border border-white/10 rounded-2xl p-5 space-y-4">
+                <div class="lg:col-span-5 bg-obsidian-950/90 border border-white/10 rounded-2xl p-5 space-y-4">
                     <div class="flex items-center justify-between">
-                        <span class="text-xs font-mono uppercase tracking-wider text-slate-400">Online Players</span>
+                        <span class="text-xs font-mono uppercase tracking-wider text-slate-400">Online Survivors</span>
                         <span id="playerCountBig" class="font-mono font-bold text-lg sm:text-xl text-white">
                             <span id="playersOnline">0</span>
                             <span class="text-slate-500">/</span>
@@ -519,17 +607,17 @@
                     </div>
 
                     <!-- Progress Bar -->
-                    <div class="w-full h-3 bg-obsidian-950 rounded-full overflow-hidden border border-white/5 p-0.5">
-                        <div id="playerProgressBar" class="h-full rounded-full bg-gradient-to-r from-ember to-ember-gold transition-all duration-700" style="width: 0%"></div>
+                    <div class="w-full h-3 bg-obsidian-900 rounded-full overflow-hidden border border-white/10 p-0.5">
+                        <div id="playerProgressBar" class="h-full rounded-full bg-gradient-to-r from-ember-crimson via-ember-gold to-sky-400 transition-all duration-700" style="width: 0%"></div>
                     </div>
 
                     <!-- Server Version & Ping Details -->
                     <div class="grid grid-cols-2 gap-2.5 pt-1">
-                        <div class="bg-obsidian-950/70 rounded-xl p-2.5 border border-white/5">
+                        <div class="bg-obsidian-900/90 rounded-xl p-2.5 border border-white/5">
                             <div class="text-[10px] font-mono uppercase text-slate-400">Software / Version</div>
                             <div id="serverVersion" class="font-mono text-xs font-semibold text-slate-200 mt-0.5 truncate">1.20.x - 1.21.x</div>
                         </div>
-                        <div class="bg-obsidian-950/70 rounded-xl p-2.5 border border-white/5">
+                        <div class="bg-obsidian-900/90 rounded-xl p-2.5 border border-white/5">
                             <div class="text-[10px] font-mono uppercase text-slate-400">Host &amp; Port</div>
                             <div class="font-mono text-xs font-semibold text-ember-gold mt-0.5 truncate">:25644</div>
                         </div>
@@ -537,7 +625,7 @@
 
                     <!-- Copy Full IP Button inside Status Card -->
                     <button onclick="copyText('play.heatwaves.fun:25644', 'play.heatwaves.fun:25644')"
-                            class="w-full py-2.5 px-4 rounded-xl bg-white/5 hover:bg-ember text-slate-200 hover:text-white font-mono text-xs font-semibold border border-white/10 hover:border-ember transition-all flex items-center justify-center gap-2">
+                            class="w-full py-2.5 px-4 rounded-xl btn-ember text-white font-mono text-xs font-bold transition-all flex items-center justify-center gap-2">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
                         </svg>
@@ -549,19 +637,21 @@
         </div>
     </section>
 
+    <div class="max-w-5xl mx-auto heat-divider"></div>
+
     <!-- ========================================== -->
     <!-- 5. "WHY HEAT WAVES?" SECTION               -->
     <!-- ========================================== -->
     <section id="why-heatwaves" class="relative z-10 py-20 md:py-28 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto mb-16">
-            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-ember/10 border border-ember/30 text-ember font-mono text-xs uppercase tracking-widest mb-3">
-                Why Heat Waves?
+            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-ember/15 border border-ember/40 text-ember-gold font-mono text-xs uppercase tracking-widest mb-3">
+                🔥 Why Heat Waves?
             </div>
             <h2 class="font-display font-bold text-3xl sm:text-5xl text-white tracking-tight">
                 More than just another SMP
             </h2>
             <p class="text-slate-400 text-base sm:text-lg mt-3">
-                A world crafted for true survival and meaningful progression.
+                A high-temperature survival world crafted for intense PvP, diplomacy, and meaningful progression.
             </p>
         </div>
 
@@ -571,13 +661,14 @@
             <!-- Card 1: Custom Mechanics -->
             <div class="glass-card rounded-2xl p-7 sm:p-8 flex flex-col justify-between relative overflow-hidden group">
                 <div>
-                    <div class="w-12 h-12 rounded-xl bg-ember/15 border border-ember/30 flex items-center justify-center text-ember mb-6 group-hover:scale-110 transition-transform">
+                    <div class="w-12 h-12 rounded-xl bg-ember/15 border border-ember/40 flex items-center justify-center text-ember mb-6 group-hover:scale-110 transition-transform shadow-ember">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"/>
                         </svg>
                     </div>
                     <h3 class="font-heading font-bold text-xl text-white mb-3 group-hover:text-ember-gold transition-colors">
-                        Custom Mechanics
+                        Custom Heat Mechanics
                     </h3>
                     <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
                         Experience a unique gameplay loop with custom events, economy twists, and progression systems that reward skill, not just grinding.
@@ -592,7 +683,7 @@
             <!-- Card 2: No Pay-to-Win -->
             <div class="glass-card rounded-2xl p-7 sm:p-8 flex flex-col justify-between relative overflow-hidden group">
                 <div>
-                    <div class="w-12 h-12 rounded-xl bg-ember-amber/15 border border-ember-amber/30 flex items-center justify-center text-ember-amber mb-6 group-hover:scale-110 transition-transform">
+                    <div class="w-12 h-12 rounded-xl bg-ember-amber/15 border border-ember-amber/40 flex items-center justify-center text-ember-gold mb-6 group-hover:scale-110 transition-transform">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
                         </svg>
@@ -601,7 +692,7 @@
                         No Pay-to-Win
                     </h3>
                     <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
-                        A strictly balanced environment. No ranks that give unfair gameplay advantages. Your power in this world is earned through diplomacy, strategy, and steel.
+                        A strictly balanced environment. No ranks that give unfair gameplay advantages. Your crown in this world is earned through diplomacy, strategy, and steel.
                     </p>
                 </div>
                 <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-xs font-mono text-slate-400">
@@ -613,12 +704,12 @@
             <!-- Card 3: Active Community -->
             <div class="glass-card rounded-2xl p-7 sm:p-8 flex flex-col justify-between relative overflow-hidden group">
                 <div>
-                    <div class="w-12 h-12 rounded-xl bg-ember-gold/15 border border-ember-gold/30 flex items-center justify-center text-ember-gold mb-6 group-hover:scale-110 transition-transform">
+                    <div class="w-12 h-12 rounded-xl bg-sky-500/15 border border-sky-400/40 flex items-center justify-center text-sky-400 mb-6 group-hover:scale-110 transition-transform shadow-wave">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
                         </svg>
                     </div>
-                    <h3 class="font-heading font-bold text-xl text-white mb-3 group-hover:text-ember-gold transition-colors">
+                    <h3 class="font-heading font-bold text-xl text-white mb-3 group-hover:text-sky-400 transition-colors">
                         Active Community
                     </h3>
                     <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
@@ -627,7 +718,7 @@
                 </div>
                 <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-xs font-mono text-slate-400">
                     <span>03 // LIVING HISTORY</span>
-                    <span class="text-ember-gold">→</span>
+                    <span class="text-sky-400">→</span>
                 </div>
             </div>
 
@@ -637,7 +728,7 @@
     <!-- ========================================== -->
     <!-- 6. LORE & WORLD PROGRESSION SECTION        -->
     <!-- ========================================== -->
-    <section id="lore-world" class="relative z-10 py-20 md:py-28 bg-obsidian-950/60 border-y border-white/5">
+    <section id="lore-world" class="relative z-10 py-20 md:py-28 bg-obsidian-950/70 border-y border-ember/15">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             
             <div class="max-w-3xl mb-14">
@@ -657,18 +748,18 @@
                 
                 <!-- Pillar 1 -->
                 <div class="glass-card rounded-2xl p-7 border border-white/10 flex gap-5 items-start">
-                    <div class="font-mono font-bold text-2xl text-ember/80 shrink-0 pt-0.5">01</div>
+                    <div class="font-mono font-bold text-2xl text-ember shrink-0 pt-0.5">01</div>
                     <div>
-                        <h3 class="font-heading font-bold text-xl text-white mb-2">A New Continent</h3>
+                        <h3 class="font-heading font-bold text-xl text-white mb-2">A Scorched Continent</h3>
                         <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
-                            Explore vast custom-felt territories shaped by player history, contested resources, and forgotten strongholds waiting to be claimed.
+                            Explore vast territories shaped by player history, contested resources, Nether strongholds, and forgotten citadels waiting to be claimed.
                         </p>
                     </div>
                 </div>
 
                 <!-- Pillar 2 -->
                 <div class="glass-card rounded-2xl p-7 border border-white/10 flex gap-5 items-start">
-                    <div class="font-mono font-bold text-2xl text-ember-amber/80 shrink-0 pt-0.5">02</div>
+                    <div class="font-mono font-bold text-2xl text-ember-amber shrink-0 pt-0.5">02</div>
                     <div>
                         <h3 class="font-heading font-bold text-xl text-white mb-2">Deep Progression</h3>
                         <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
@@ -679,7 +770,7 @@
 
                 <!-- Pillar 3 -->
                 <div class="glass-card rounded-2xl p-7 border border-white/10 flex gap-5 items-start">
-                    <div class="font-mono font-bold text-2xl text-ember-gold/80 shrink-0 pt-0.5">03</div>
+                    <div class="font-mono font-bold text-2xl text-ember-gold shrink-0 pt-0.5">03</div>
                     <div>
                         <h3 class="font-heading font-bold text-xl text-white mb-2">Living Economies</h3>
                         <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
@@ -690,34 +781,34 @@
 
                 <!-- Pillar 4 -->
                 <div class="glass-card rounded-2xl p-7 border border-white/10 flex gap-5 items-start">
-                    <div class="font-mono font-bold text-2xl text-ember/80 shrink-0 pt-0.5">04</div>
+                    <div class="font-mono font-bold text-2xl text-sky-400 shrink-0 pt-0.5">04</div>
                     <div>
-                        <h3 class="font-heading font-bold text-xl text-white mb-2">The Scorched Citadel</h3>
+                        <h3 class="font-heading font-bold text-xl text-white mb-2">The Crimson Crown</h3>
                         <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
-                            High-risk zones and server-wide events where only the most coordinated alliances survive to claim legendary spoils.
+                            High-risk zones and server-wide events where only the most coordinated alliances survive to claim legendary spoils and rule the realm.
                         </p>
                     </div>
                 </div>
 
             </div>
 
-            <!-- Atmospheric Quote Box with Tags -->
-            <div class="glass-card rounded-3xl p-8 sm:p-10 border border-ember/25 bg-gradient-to-br from-obsidian-800/90 via-obsidian-900/95 to-ember/10 relative overflow-hidden">
-                <div class="max-w-3xl">
+            <!-- Atmospheric Quote Box with Logo Watermark & Tags -->
+            <div class="glass-card rounded-3xl p-8 sm:p-10 border border-ember/35 bg-gradient-to-br from-obsidian-800/90 via-obsidian-900/95 to-ember/15 relative overflow-hidden shadow-ember">
+                <div class="max-w-3xl relative z-10">
                     <blockquote class="font-display italic text-xl sm:text-2xl text-slate-100 leading-relaxed mb-6">
-                        "When the old kingdoms burned beneath the crimson horizon, no kings remained to crown the survivors. Here, authority is forged in blood, treaties, and unbreakable alliances."
+                        "When the old kingdoms burned beneath the crimson horizon, no kings remained to crown the survivors. Here, authority is forged in fire, treaties, and unbreakable alliances."
                     </blockquote>
                     <div class="flex flex-wrap items-center gap-2.5">
-                        <span class="px-3.5 py-1.5 rounded-full text-xs font-mono font-medium bg-obsidian-950/80 text-ember-gold border border-ember/30">
+                        <span class="px-3.5 py-1.5 rounded-full text-xs font-mono font-medium bg-obsidian-950/85 text-ember-gold border border-ember/40">
                             Political Systems
                         </span>
-                        <span class="px-3.5 py-1.5 rounded-full text-xs font-mono font-medium bg-obsidian-950/80 text-ember-amber border border-ember/30">
+                        <span class="px-3.5 py-1.5 rounded-full text-xs font-mono font-medium bg-obsidian-950/85 text-ember-amber border border-ember/40">
                             Ancient Relics
                         </span>
-                        <span class="px-3.5 py-1.5 rounded-full text-xs font-mono font-medium bg-obsidian-950/80 text-ember border border-ember/30">
+                        <span class="px-3.5 py-1.5 rounded-full text-xs font-mono font-medium bg-obsidian-950/85 text-ember border border-ember/40">
                             Clan Warfare
                         </span>
-                        <span class="px-3.5 py-1.5 rounded-full text-xs font-mono font-medium bg-obsidian-950/80 text-slate-200 border border-white/15">
+                        <span class="px-3.5 py-1.5 rounded-full text-xs font-mono font-medium bg-obsidian-950/85 text-sky-400 border border-sky-400/40">
                             Player Economy
                         </span>
                     </div>
@@ -835,7 +926,7 @@
                             <span class="font-mono text-xs font-bold px-2.5 py-1 rounded bg-ember/20 text-ember border border-ember/30">RULE 01</span>
                             <span class="font-heading font-bold text-base sm:text-lg text-white">No Hacking, X-Ray, or Unfair Clients</span>
                         </div>
-                        <svg id="ruleIcon1" class="w-5 h-5 text-slate-400 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg id="ruleIcon1" class="w-5 h-5 text-slate-400 transition-transform duration-300 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                         </svg>
                     </button>
@@ -880,7 +971,7 @@
                 <div class="glass-card rounded-2xl border border-white/10 overflow-hidden">
                     <button onclick="toggleRule(4)" class="w-full px-6 py-4 text-left flex items-center justify-between gap-4 focus:outline-none">
                         <div class="flex items-center gap-3.5">
-                            <span class="font-mono text-xs font-bold px-2.5 py-1 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">RULE 04</span>
+                            <span class="font-mono text-xs font-bold px-2.5 py-1 rounded bg-sky-500/20 text-sky-400 border border-sky-500/30">RULE 04</span>
                             <span class="font-heading font-bold text-base sm:text-lg text-white">Community Respect &amp; Zero Doxxing</span>
                         </div>
                         <svg id="ruleIcon4" class="w-5 h-5 text-slate-400 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -896,25 +987,31 @@
     </section>
 
     <!-- ========================================== -->
-    <!-- 8. FOOTER                                  -->
+    <!-- 8. FOOTER WITH LOGO EMBLEM                 -->
     <!-- ========================================== -->
-    <footer class="relative z-10 border-t border-white/10 bg-obsidian-950 pt-14 pb-10">
+    <footer class="relative z-10 border-t border-ember/25 bg-obsidian-950 pt-14 pb-12">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 pb-10 border-b border-white/10">
                 
-                <!-- Brand & Tagline -->
-                <div>
-                    <div class="flex items-center gap-3 mb-2">
-                        <span class="font-display font-bold text-xl text-white">
-                            HEAT WAVES <span class="text-ember">SMP</span>
-                        </span>
-                        <span class="text-xs font-mono px-2.5 py-0.5 rounded bg-white/5 text-ember-gold border border-white/10">
-                            play.heatwaves.fun:25644
-                        </span>
+                <!-- Brand & Logo -->
+                <div class="flex items-center gap-4">
+                    <img src="logo.webp"
+                         onerror="if(!this.dataset.t1){this.dataset.t1=1;this.src='77a17a08a6d6fc6ce1f10d728fa857ce.webp';}else if(!this.dataset.t2){this.dataset.t2=1;this.src='https://api.mcsrvstat.us/icon/play.heatwaves.fun:25644';}else{this.onerror=null;this.src='https://placehold.co/80x80/12101b/ff4d1a?text=HW';}"
+                         alt="Heat Waves SMP Logo"
+                         class="w-14 h-14 rounded-full border-2 border-ember/50 shadow-ember object-cover bg-obsidian-900">
+                    <div>
+                        <div class="flex flex-wrap items-center gap-2.5 mb-1">
+                            <span class="font-display font-bold text-xl text-white">
+                                HEAT <span class="text-sky-400">WAVES</span> <span class="text-ember">SMP</span>
+                            </span>
+                            <span class="text-xs font-mono px-2.5 py-0.5 rounded bg-ember/15 text-ember-gold border border-ember/30">
+                                play.heatwaves.fun:25644
+                            </span>
+                        </div>
+                        <p class="text-xs sm:text-sm font-mono text-slate-400">
+                            Survival • Story-Driven • Community First
+                        </p>
                     </div>
-                    <p class="text-xs sm:text-sm font-mono text-slate-400">
-                        Survival • Story-Driven • Community First
-                    </p>
                 </div>
 
                 <!-- Quick Links -->
@@ -946,25 +1043,33 @@
     <!-- HOW TO JOIN CONNECTION MODAL               -->
     <!-- ========================================== -->
     <div id="connectModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-md">
-        <div class="glass-card max-w-lg w-full rounded-3xl p-6 sm:p-8 border border-ember/40 shadow-ember-lg relative">
+        <div class="glass-card max-w-lg w-full rounded-3xl p-6 sm:p-8 border border-ember/50 shadow-ember-lg relative">
             <button onclick="closeConnectModal()" aria-label="Close Modal" class="absolute top-5 right-5 p-2 rounded-lg bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
                 </svg>
             </button>
 
-            <div class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-ember mb-2">
-                <span>// QUICK START GUIDE</span>
+            <div class="flex items-center gap-3 mb-4">
+                <img src="logo.webp"
+                     onerror="if(!this.dataset.t1){this.dataset.t1=1;this.src='77a17a08a6d6fc6ce1f10d728fa857ce.webp';}else if(!this.dataset.t2){this.dataset.t2=1;this.src='https://api.mcsrvstat.us/icon/play.heatwaves.fun:25644';}else{this.onerror=null;this.src='https://placehold.co/64x64/12101b/ff4d1a?text=HW';}"
+                     alt="Heat Waves Logo"
+                     class="w-12 h-12 rounded-full border border-ember/50 object-cover">
+                <div>
+                    <div class="text-xs font-mono uppercase tracking-widest text-ember">
+                        // QUICK START GUIDE
+                    </div>
+                    <h3 class="font-display font-bold text-2xl text-white">How to Join Heat Waves SMP</h3>
+                </div>
             </div>
-            <h3 class="font-display font-bold text-2xl text-white mb-4">How to Join Heat Waves SMP</h3>
 
             <div class="space-y-4 text-sm text-slate-300">
                 <div class="p-4 rounded-xl bg-obsidian-950/90 border border-white/10">
                     <div class="font-heading font-bold text-white mb-1">Java Edition (1.20.x – 1.21.x)</div>
                     <p class="text-xs text-slate-400 mb-2">Open Minecraft → Multiplayer → Add Server → Enter the full address below:</p>
-                    <div class="flex items-center justify-between bg-obsidian-900 px-3 py-2 rounded-lg border border-white/10 font-mono text-xs text-ember-gold">
+                    <div class="flex items-center justify-between bg-obsidian-900 px-3 py-2 rounded-lg border border-ember/30 font-mono text-xs text-ember-gold">
                         <span>play.heatwaves.fun:25644</span>
-                        <button onclick="copyText('play.heatwaves.fun:25644', 'Java Address')" class="text-white hover:text-ember underline">Copy</button>
+                        <button onclick="copyText('play.heatwaves.fun:25644', 'Java Address')" class="text-white hover:text-ember underline font-bold">Copy</button>
                     </div>
                 </div>
 
@@ -975,7 +1080,7 @@
                         <div class="col-span-2 bg-obsidian-900 px-3 py-2 rounded-lg border border-white/10 text-white truncate">
                             IP: play.heatwaves.fun
                         </div>
-                        <div class="bg-obsidian-900 px-3 py-2 rounded-lg border border-white/10 text-ember-gold">
+                        <div class="bg-obsidian-900 px-3 py-2 rounded-lg border border-ember/30 text-ember-gold">
                             Port: 25644
                         </div>
                     </div>
@@ -998,14 +1103,14 @@
     <!-- TOAST NOTIFICATION                         -->
     <!-- ========================================== -->
     <div id="toastNotification" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 pointer-events-none transition-all duration-300">
-        <div class="glass-card px-5 py-3.5 rounded-2xl border border-ember/50 shadow-ember flex items-center gap-3 bg-obsidian-900/95">
+        <div class="glass-card px-5 py-3.5 rounded-2xl border border-ember/60 shadow-ember flex items-center gap-3 bg-obsidian-900/95">
             <div class="w-8 h-8 rounded-lg bg-ember/20 border border-ember/40 flex items-center justify-center text-ember shrink-0">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                 </svg>
             </div>
             <div>
-                <div class="text-xs font-mono uppercase tracking-wider text-ember-gold font-bold">Copied to Clipboard</div>
+                <div class="text-xs font-mono uppercase tracking-wider text-ember-gold font-bold">🔥 Copied to Clipboard</div>
                 <div id="toastMessage" class="text-xs sm:text-sm font-mono text-white">play.heatwaves.fun:25644</div>
             </div>
         </div>
@@ -1017,6 +1122,15 @@
     <script>
         // Set Current Year
         document.getElementById('yearSpan').textContent = new Date().getFullYear();
+
+        // Top Scroll Thermal Progress Bar
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+            const bar = document.getElementById('scrollProgress');
+            if (bar) bar.style.width = scrolled + '%';
+        });
 
         // Mobile Navigation Toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
@@ -1182,16 +1296,11 @@
             const progressBar = document.getElementById('playerProgressBar');
             const motdEl = document.getElementById('serverMotd');
             const versionEl = document.getElementById('serverVersion');
-            const iconEl = document.getElementById('serverIcon');
 
             playersOnlineEl.textContent = state.playersOnline;
             playersMaxEl.textContent = state.playersMax;
             versionEl.textContent = state.version;
             motdEl.textContent = state.motd;
-
-            if (state.icon) {
-                iconEl.src = state.icon;
-            }
 
             const ratio = state.playersMax > 0 ? Math.min(100, Math.round((state.playersOnline / state.playersMax) * 100)) : 0;
             progressBar.style.width = `${ state.online ? Math.max(ratio, 4) : 0 }%`;
@@ -1229,12 +1338,18 @@
         }
 
         // ====================================================
-        // FLOATING EMBER PARTICLE BACKGROUND CANVAS
+        // INTENSE RISING MAGMA EMBERS & HEAT SPARKS CANVAS
         // ====================================================
         function initEmberParticles() {
             const canvas = document.getElementById('emberCanvas');
             const ctx = canvas.getContext('2d');
             let width, height, particles;
+            let mouseX = -1000, mouseY = -1000;
+
+            window.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
 
             function resize() {
                 width = canvas.width = window.innerWidth;
@@ -1247,18 +1362,41 @@
                 }
                 reset(initial = false) {
                     this.x = Math.random() * width;
-                    this.y = initial ? Math.random() * height : height + 10;
-                    this.size = Math.random() * 2.2 + 0.6;
-                    this.speedY = -(Math.random() * 0.65 + 0.2);
-                    this.speedX = (Math.random() - 0.5) * 0.4;
-                    this.alpha = Math.random() * 0.65 + 0.15;
-                    const colors = ['#ff5e3a', '#ff9500', '#ffb703', '#ff3b30'];
-                    this.color = colors[Math.floor(Math.random() * colors.length)];
+                    this.y = initial ? Math.random() * height : height + 15;
+                    this.size = Math.random() * 2.8 + 0.8;
+                    this.speedY = -(Math.random() * 1.15 + 0.35);
+                    this.speedX = (Math.random() - 0.5) * 0.6;
+                    this.wobble = Math.random() * Math.PI * 2;
+                    this.wobbleSpeed = Math.random() * 0.03 + 0.01;
+                    this.alpha = Math.random() * 0.75 + 0.2;
+                    // Palette inspired by the Heat Waves SMP logo (Magma Orange, Crimson, Gold, and a rare Blue Wave spark)
+                    const colors = ['#ff3b00', '#ff6a00', '#ffb703', '#ff1e00', '#ff8800', '#00b4ff'];
+                    const weights = [0.28, 0.28, 0.2, 0.12, 0.07, 0.05];
+                    let r = Math.random(), sum = 0;
+                    this.color = colors[0];
+                    for (let i = 0; i < weights.length; i++) {
+                        sum += weights[i];
+                        if (r <= sum) {
+                            this.color = colors[i];
+                            break;
+                        }
+                    }
                 }
                 update() {
+                    this.wobble += this.wobbleSpeed;
                     this.y += this.speedY;
-                    this.x += this.speedX;
-                    if (this.y < -10 || this.x < -10 || this.x > width + 10) {
+                    this.x += this.speedX + Math.sin(this.wobble) * 0.35;
+
+                    // Subtle thermal push away from cursor
+                    const dx = this.x - mouseX;
+                    const dy = this.y - mouseY;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 110 && dist > 0) {
+                        this.x += (dx / dist) * 0.8;
+                        this.y += (dy / dist) * 0.4;
+                    }
+
+                    if (this.y < -15 || this.x < -15 || this.x > width + 15) {
                         this.reset(false);
                     }
                 }
@@ -1266,7 +1404,7 @@
                     ctx.save();
                     ctx.globalAlpha = this.alpha;
                     ctx.fillStyle = this.color;
-                    ctx.shadowBlur = 8;
+                    ctx.shadowBlur = 12;
                     ctx.shadowColor = this.color;
                     ctx.beginPath();
                     ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
@@ -1277,7 +1415,7 @@
 
             function setup() {
                 resize();
-                const count = Math.min(55, Math.floor(width / 25));
+                const count = Math.min(75, Math.floor(width / 18));
                 particles = Array.from({ length: count }, () => new Ember());
             }
 
